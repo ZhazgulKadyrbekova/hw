@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Example for loops</h1>
+
+<?php
+####################### example for FOR loop ################
+
+$n = 6;
+$factorial = 1;
+
+for ($i = $n; $i > 1; $i--) {
+  $factorial = $factorial * $i;
+}
+echo "<br>The factorial of $n is: $factorial <br>";
+
+####################### example for WHILE loop ################
+
+
+$x = $n;
+$factorial = 1;
+
+while ($n > 1) {
+  $factorial = $factorial * $n;
+  $n--;
+}
+echo "<br>The factorial of $x is: $factorial <br>";
+
+?>
+
+</body>
+</html>
