@@ -2,7 +2,7 @@
 class Continents {
   public $name, $area, $countries, $population;
 
-  function Continents($name) {
+  function __construct($name) {
     $this->name = $name;
   }
 

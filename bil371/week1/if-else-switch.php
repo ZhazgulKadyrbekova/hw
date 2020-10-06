@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>Example for arrays, switch, if...else</h1>
-
 <?php
 
 $weekdays = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday");
@@ -22,14 +16,12 @@ switch ($n) {
 }
 
 if ($n >=1 && $n <= 5) {
-    echo "<br> Weekday";
+    echo "\n Weekday";
 } else {
-    echo "<br> Weekend";
+    echo "\n Weekend";
 }
 
 
 ?>
 
-</body>
-</html>
 
