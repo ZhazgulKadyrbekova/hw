@@ -9,10 +9,13 @@ public class Main {
         asan.salary = 1500;
         asan.experience = 3;
 
-        asan.info();
-
         asan.work();
         asan.rest();
+        asan.rest(20);
+        asan.rest(2, 15);
+
+        asan.info();
+
         System.out.println();
         
 
@@ -28,10 +31,10 @@ public class Main {
         uson.department = "MobDev";
         uson.experienceInDepartment = 3;
 
-        uson.info();
-
         uson.work();
         uson.rest();
         uson.control();
+
+        uson.info();
     }
 }

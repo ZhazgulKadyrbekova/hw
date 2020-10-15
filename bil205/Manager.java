@@ -12,5 +12,17 @@ public class Manager extends Employee {
 			" department and works for " + this.experienceInDepartment + " years");
 	}
 
-	
+	//////////////////////////////		EXAMPLE FOR OVERRIDING		////////////////////////
+	void info(){
+		System.out.println("\tInfo:" +
+				"\nName: " +this.name +
+				"\nSurname: " + this.surname +
+				"\nAge: " + this.age +
+				"\nStatus: " + this.status +
+				"\nSalary: " + this.salary +
+				"\nTotal experience: " + this.experience +
+				"\nCompany: " + this.company +
+				"\nDepartment: " + this.department +
+				"\nExperience: " + this.experienceInDepartment);
+	}
 }
