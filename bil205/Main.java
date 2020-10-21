@@ -1,40 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Employee asan = new Employee();
+        Employee esen = new Employee("Esen", "Asanov", 27, "developer", 1500, 3);
 
-        asan.name = "Asan";
-        asan.surname = "Esenov";
-        asan.age = 27;
-        asan.status = "developer";
-        asan.salary = 1500;
-        asan.experience = 3;
-
-        asan.work();
-        asan.rest();
-        asan.rest(20);
-        asan.rest(2, 15);
-
-        asan.info();
-
+        esen.info();
         System.out.println();
         
 
-        Manager uson = new Manager();
+        Manager asan = new Manager("Asan", "Esenov", 32, "manager", 1200, 7, "amazon", "MobDev", 3);
 
-        uson.name = "Uson";
-        uson.surname = "Esenov";
-        uson.age = 32;
-        uson.status = "manager";
-        uson.salary = 1200;
-        uson.experience = 7;
-        uson.company = "amazon";
-        uson.department = "MobDev";
-        uson.experienceInDepartment = 3;
-
-        uson.work();
-        uson.rest();
-        uson.control();
-
-        uson.info();
+        asan.info();
     }
 }

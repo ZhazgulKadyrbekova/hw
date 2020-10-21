@@ -5,11 +5,22 @@ public class Employee {
     int salary;
     int experience;
 
+    public Employee() {
+    }
+
+    public Employee(String name, String surname, int age, String status, int salary, int experience) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.status = status;
+        this.salary = salary;
+        this.experience = experience;
+    }
+
     void work(){
         System.out.println(this.name + " is working.");
     }
 
-    /////////////////////////////////    EXAMPLE FOR OVERLOADING     ///////////////////////////////////////
     void rest(){
         System.out.println(this.name + " is having a rest.");
     }

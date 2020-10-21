@@ -3,6 +3,17 @@ public class Manager extends Employee {
 	String department;
 	int experienceInDepartment;
 
+	public Manager() {
+		super();
+	}
+
+	public Manager(String name, String surname, int age, String status, int salary, int experience, String company, String department, int experienceInDepartment) {
+		super(name, surname, age, status, salary, experience);
+		this.company = company;
+		this.department = department;
+		this.experienceInDepartment = experienceInDepartment;
+	}
+
 	void work() {
 		System.out.println(this.name + " works in " + this.company + " company");
 	}
@@ -12,7 +23,6 @@ public class Manager extends Employee {
 			" department and works for " + this.experienceInDepartment + " years");
 	}
 
-	//////////////////////////////		EXAMPLE FOR OVERRIDING		////////////////////////
 	void info(){
 		System.out.println("\tInfo:" +
 				"\nName: " +this.name +
