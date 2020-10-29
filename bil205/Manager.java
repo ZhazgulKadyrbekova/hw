@@ -1,7 +1,7 @@
 public class Manager extends Employee {
-	String company;
-	String department;
-	int experienceInDepartment;
+	private String company;
+	private String department;
+	private int experienceInDepartment;
 
 	public Manager() {
 		super();
@@ -14,16 +14,44 @@ public class Manager extends Employee {
 		this.experienceInDepartment = experienceInDepartment;
 	}
 
-	void work() {
+	/////////////////////	getters & setters	//////////////////
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public int getExperienceInDepartment() {
+		return experienceInDepartment;
+	}
+
+	public void setExperienceInDepartment(int experienceInDepartment) {
+		this.experienceInDepartment = experienceInDepartment;
+	}
+
+	/////////////////////////	class methods	////////////////////////////////
+
+	public void work() {
 		System.out.println(this.name + " works in " + this.company + " company");
 	}
 
-	void control() {
+	public void control() {
 		System.out.println(this.name + " manages with workers of " + this.department +
 			" department and works for " + this.experienceInDepartment + " years");
 	}
 
-	void info(){
+	public void info(){
 		System.out.println("\tInfo:" +
 				"\nName: " +this.name +
 				"\nSurname: " + this.surname +
