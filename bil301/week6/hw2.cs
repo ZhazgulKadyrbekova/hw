@@ -11,16 +11,20 @@ public class HW {
         int[] odd = new int[count];
 
         Console.Write("Array with all elements\n\t");
-        for (int i = 0; i < count; i++) {
+        int i = 0;
+        while (i < count) {
             if (arr[i] % 2 == 1) {
                 odd[k++] = arr[i];
             }
             Console.Write(" {0}", arr[i]);
+            i++;
         }
 
         Console.Write("\nArray with odd elements\n\t");
-        for (int i = 0; i < k; i++) {
+        i = 0;
+        while (i < k) {
             Console.Write(" {0}", odd[i]);
+            i++;
         }
         Console.WriteLine();
     }

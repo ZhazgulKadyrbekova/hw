@@ -1,7 +1,8 @@
-// N натурал саны берилсе, анын санариптер санын тапкыла.
+/* N натурал саны берилсе, анын санариптер санын тапкыла. */
+
 
 using System;
-class YOD{
+class HW{
     public static void Main() {
         Console.WriteLine("Enter a natural number");
         int n = Int32.Parse(Console.ReadLine()), m = n, res = 0;

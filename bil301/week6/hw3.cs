@@ -1,42 +1,31 @@
 /*
-NxM массивин кокус сандар менен толтургула, элементтер кайталанышы мүмүкүн. 
-Бул массивте K элементинин акыркы кирүү индекстерин аныктагыла.
+a = [1, 6, 9, 18, 27, 36, 51, 68, 82, 101] массиви берилген. Бул массивдин так элементтерин 
+башка массивке алып, жыйынтыгын чыгаргыла.
 */
-
-using System;
+using  System;
 
 public class HW {
     public static void Main() {
-        Console.WriteLine("Enter values for n, m: ");
-        int n = Int32.Parse(Console.ReadLine()), m = Int32.Parse(Console.ReadLine());
-        Random random = new Random();
+        int[] arr = {1, 6, 9, 18, 27, 36, 51, 68, 82, 101};
+        int count = arr.Length, k = 0;
+        int[] odd = new int[count];
 
-        int[,] arr = new int[n, m];
-        Console.WriteLine("Array we got:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                arr[i, j] = random.Next(0, 100);
-                Console.Write("\t{0}", arr[i, j]);
+        Console.Write("Array with all elements\n\t");
+        int i = 0;
+        do {
+            if (arr[i] % 2 == 1) {
+                odd[k++] = arr[i];
             }
-            Console.WriteLine();
-        }
-        Console.WriteLine("Enter value for k:");
-        int k = Int32.Parse(Console.ReadLine());
+            Console.Write(" {0}", arr[i]);
+            i++;
+        } while (i < count);
 
-        bool flag = false;
-        for (int i = n-1; i >= 0; i--) {
-            for (int j = m-1; j >= 0; j--) {
-                if (k == arr[i, j]) {
-                    Console.WriteLine("Last \"{0}\" is placed in ({1},{2})", k, i+1, j+1);
-                    flag = true;
-                    break;
-                }
-            }
-            
-        }
-        if (!flag) {
-            Console.WriteLine("{0} does not exist in array", k);
-        }
-        
+        Console.Write("\nArray with odd elements\n\t");
+        i = 0;
+        do {
+            Console.Write(" {0}", odd[i]);
+            i++;
+        } while (i < k);
+        Console.WriteLine();
     }
 }

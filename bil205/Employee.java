@@ -4,20 +4,19 @@ public class Employee {
     protected String status;
     protected int salary;
     protected int experience;
+    private static String employer;
 
     public Employee() {
     }
 
     public Employee(String name, String surname, int age, String status, int salary, int experience) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.status = status;
-        this.salary = salary;
-        this.experience = experience;
+        this.setName(name);
+        this.setSurname(surname);
+        this.setAge(age);
+        this.setStatus(status);
+        this.setSalary(salary);
+        this.setExperience(experience);
     }
-
-    /////////////////   getters & setters   /////////////////////////
 
     public String getName() {
         return name;
@@ -67,7 +66,13 @@ public class Employee {
         this.experience = experience;
     }
 
-    /////////////////////////   class methods   ///////////////////////////
+    public static String getEmployer() {
+        return employer;
+    }
+
+    public static void setEmployer(String employer) {
+        Employee.employer = employer;
+    }
 
     public void work(){
         System.out.println(this.name + " is working.");
@@ -87,11 +92,11 @@ public class Employee {
 
     public void info(){
         System.out.println("\tInfo:" +
-                "\nName: " +this.name +
-                "\nSurname: " + this.surname +
-                "\nAge: " + this.age +
-                "\nStatus: " + this.status + 
-                "\nSalary: " + this.salary + 
-                "\nTotal experience: " + this.experience);
+                "\nName: " +this.getName() +
+                "\nSurname: " + this.getSurname() +
+                "\nAge: " + this.getAge() +
+                "\nStatus: " + this.getStatus() +
+                "\nSalary: " + this.getSalary() +
+                "\nTotal experience: " + this.getExperience());
     }
 }

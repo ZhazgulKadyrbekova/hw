@@ -1,3 +1,6 @@
+﻿Жеке вариантта берилген берилиштерди киргизген жана ал берилиштерди вариантта берилген жадыбал
+түрүндө чыгарган програмды иштеп чыккыла.
+
 using System;
 
 class YOD1 {
@@ -56,3 +59,38 @@ class YOD1 {
         Console.WriteLine("|-----------------------------------------------------|");
     }
 }
+
+
+Жыйынтык:
+Kancha sap maalymat kirgizuunu kaalaisyz?
+3
+Maalymatty kirgiziniz:
+Firma:
+Oracle
+Programdyk karajattyn sany:
+1
+Satuunun jyldyk kolomu:
+2488000000
+Rynok ulushu:
+31.1
+
+Maalymatty kirgiziniz:
+Firma:
+IBM
+Programdyk karajattyn sany:
+3
+Satuunun jyldyk kolomu:
+2392000000
+Rynok ulushu:
+29.9
+
+Maalymatty kirgiziniz:
+Firma:
+Microsoft
+Programdyk karajattyn sany:
+2
+Satuunun jyldyk kolomu:
+1048000000
+Rynok ulushu:
+13.1
+

@@ -3,6 +3,8 @@ using System;
 class HW {
     public static void Main() {
         Console.WriteLine("Enter date in format DD.MM.YYYY:");
+
+        /************************************* goto *************************************/
         restart:
         String[] date = new String[3];
         date = Console.ReadLine().Split(".");
