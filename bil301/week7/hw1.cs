@@ -1,24 +1,21 @@
+/*
+18. Фибоначчи катарынын n-санынын маанисин эсептеген рекурсивдүү методду жазыңыз. Фибоначчи катарлары 1, 1, 2, 3, 5, 8, 13 ... натуралдык сандар тизмеги.
+*/
 
 using System;
 class Example {
-    public int gcd(int a, int b) {
-        
+    public int fib(int a, int b, int i, int n) {
+        if (i == n) return b;
+        else return fib(b, a+b, i+1, n);
     }
 }
 class HW {
     public static void Main() {
         Example ob = new Example();
-        int m = 9;
-        Console.WriteLine(ob.fact(m));
+        Console.WriteLine("Enter index to learn its value (starting from 1):");
+        int n = Int32.Parse(Console.ReadLine());
+        int a = 1, b = 1;
+        if (n == 1) Console.WriteLine("1");
+        else Console.WriteLine(ob.fib(a,b,2,n));
     }
 }
-
-/*
-hw1.cs(20,12): error CS1502: The best overloaded method match for `Example.Square(int)' has some invalid arguments
-hw1.cs(10,17): (Location of the symbol related to previous error)
-hw1.cs(20,23): error CS1615: Argument `#1' does not require `ref' modifier. Consider removing `ref' modifier
-Compilation failed: 2 error(s), 0 warnings
-
-функция параметр кабыл алган жерде ref кызматчы созу жок болгон учурда, 
-функцияны чакырып жатканда ref созун колдонууга болбойт
-*/
