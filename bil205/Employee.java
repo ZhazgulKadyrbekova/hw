@@ -2,19 +2,22 @@ public class Employee {
     protected String name, surname;
     protected int age;
     protected String status;
-    protected int salary;
+    /*
+    Employee классынын salary аттуу касиети финал колдонуучу созу менен жарыяланды.
+    Анын маанисин коддун башка жеринде озгортууго тыюу салынат.
+    Озгормону финал деп жарыялаганда созсуз маани ыйгаруу керек.
+     */
+    protected final int salary = 1500;
     protected int experience;
-    private static String employer;
 
     public Employee() {
     }
 
-    public Employee(String name, String surname, int age, String status, int salary, int experience) {
+    public Employee(String name, String surname, int age, String status, int experience) {
         this.setName(name);
         this.setSurname(surname);
         this.setAge(age);
         this.setStatus(status);
-        this.setSalary(salary);
         this.setExperience(experience);
     }
 
@@ -54,10 +57,6 @@ public class Employee {
         return salary;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
     public int getExperience() {
         return experience;
     }
@@ -66,28 +65,15 @@ public class Employee {
         this.experience = experience;
     }
 
-    public static String getEmployer() {
-        return employer;
-    }
-
-    public static void setEmployer(String employer) {
-        Employee.employer = employer;
-    }
-
-    public void work(){
+    /*
+    Класстын методун финал деп жарыялоонун себеби, бала класста аны кайра жазууга тыюу салуу.
+     */
+    public final void work(){
         System.out.println(this.name + " is working.");
-    }
-
-    public void rest(){
-        System.out.println(this.name + " is having a rest.");
     }
 
     public void rest(int min){
         System.out.println(this.name + " is having a rest for " + min + " minutes.");
-    }
-
-    public void rest(int h, int min){
-        System.out.println(this.name + " is having a rest for " + h + " hours and " + min + " minutes.");
     }
 
     public void info(){

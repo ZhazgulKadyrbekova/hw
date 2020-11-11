@@ -1,16 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        Employee.setEmployer("Amazon");
-        Employee esen = new Employee("Esen", "Asanov", 27, "developer", 1500, 3);
+        Employee john = new Employee("John", "Doe", 27, "developer", 3);
 
-        esen.info();
-        System.out.println("Employer: " + Employee.getEmployer());
+        john.info();
+        john.work();
         System.out.println();
         
 
-        Manager asan = new Manager("Asan", "Esenov", 32, "manager", 1200, 7, "MobDev", 3);
+        Manager sam = new Manager("Sam", "Smith", 32, "manager", 7, "MobDev", 3);
 
-        asan.info();
-        System.out.println("Employer: " + Manager.getEmployer());
+        sam.info();
+        sam.work();
     }
 }
