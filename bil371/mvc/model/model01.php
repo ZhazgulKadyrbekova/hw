@@ -32,12 +32,12 @@
 
                 $stmt -> execute();
                 $stmt -> store_result();
-                $stmt -> bind_result($id, $name, $age, $gender);
+                $stmt -> bind_result($id, $name, $age, $gender, $password);
 
                 $customersList = array();
                 if ($stmt->num_rows > 0) {
                     while ($stmt -> fetch()) {
-                        $customersList[] = new Customer($id, $name, $age, $gender);
+                        $customersList[] = new Customer($id, $name, $age, $gender, $password);
                     }
                     $stmt -> close();
                     $this->conn->close();
@@ -54,16 +54,45 @@
             }
         }
 
+        function getCustomerById($id) {
+            $stmt = $this->conn -> stmt_init();
+            $sql = "select * from Customers where id = ?;";
+            if ($stmt -> prepare($sql)) {
+
+                $id = htmlspecialchars($id);
+                $stmt -> bind_param("d", $id);
+                $stmt -> execute();
+                $stmt -> store_result();
+                $stmt -> bind_result($id, $name, $age, $gender, $password);
+
+                if ($stmt -> num_rows == 1) {
+                    $stmt -> fetch();
+                    $customer = new Customer($id, $name, $age, $gender, $password);
+                    $stmt->close();
+                    $this->conn->close();
+                    return $customer;
+                } else {
+                    $message = "Error: " . $sql . "<br>" . $this->conn->error;
+                }
+            } else {
+                $message = "Statement prepare error";
+            }
+            $this->conn->close();
+            return $message;
+        }
+
         function addNewCustomer($customer) {
             $stmt = $this->conn -> stmt_init();
-            $sql = "insert into `Customers` (`id`, `name`, `age`, `gender`) values(null, ?, ?, ?);";
+            $sql = "insert into `Customers` (`id`, `name`, `age`, `gender`, `password`) values(null, ?, ?, ?, ?);";
             if ($stmt -> prepare($sql)) {
 
                 $name = htmlspecialchars($customer->getName());
                 $age = htmlspecialchars($customer->getAge());
                 $gender = htmlspecialchars($customer->getGender());
+                $password = htmlspecialchars($customer->getPassword());
+                $hashed = md5($password);
 
-                $stmt -> bind_param("sds", $name, $age, $gender);
+                $stmt -> bind_param("sdss", $name, $age, $gender, $hashed);
 
                 if ($stmt -> execute() === TRUE) {
                     $message = "New record created successfully";
@@ -80,12 +109,12 @@
             return $message;
         }
 
-        function updateCustomerData($customer) {
+        function updateCustomerInfo($customer) {
             $stmt = $this->conn -> stmt_init();
-            $sql = "update `Customers` set `id`=?,
-                                            `name`=?,
+            $sql = "update `Customers` set `name`=?,
                                             `age`=?,
-                                            `gender`=?
+                                            `gender`=?,
+                                            `password`=?
                         where id = ?;";
             if ($stmt -> prepare($sql)) {
 
@@ -93,12 +122,14 @@
                 $name = htmlspecialchars($customer->getName());
                 $age = htmlspecialchars($customer->getAge());
                 $gender = htmlspecialchars($customer->getGender());
+                $password = htmlspecialchars($customer->getPassword());
+                $hashed = md5($password);
 
-                $stmt -> bind_param("dsdsd", $id, $name, $age, $gender, $id);
+                $stmt -> bind_param("sdssd", $name, $age, $gender, $hashed, $id);
 
-                
+                $stmt -> execute();
 
-                if ($stmt -> execute() === TRUE) {
+                if ($stmt -> affected_rows > 0) {
                     $message = "Record updated successfully";
                 } else {
                     $message = "Error: " . $sql . "<br>" . $this->conn->error;
@@ -134,6 +165,32 @@
             
             $this->conn->close();
 
+            return $message;
+        }
+
+        function getPasswordByName($name, $password) {
+            $stmt = $this->conn -> stmt_init();
+            $sql = "select `password` from Customers where name = ?;";
+            if ($stmt -> prepare($sql)) {
+
+                $name = htmlspecialchars($name);
+                $stmt -> bind_param("s", $name);
+                $stmt -> execute();
+                $stmt -> store_result();
+                $stmt -> bind_result($password);
+
+                if ($stmt -> num_rows === 1) {
+                    $stmt -> fetch();
+                    $stmt->close();
+                    $this->conn->close();
+                    return $password;
+                } else {
+                    $message = "Error: " . $sql . "<br>" . $this->conn->error;
+                }
+            } else {
+                $message = "Statement prepare error";
+            }
+            $this->conn->close();
             return $message;
         }
         

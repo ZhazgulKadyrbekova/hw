@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['authenticated'])) {
+    $_SESSION['authenticated'] = false;
+    $_SESSION['name'] = null;
+ } 
 	require_once ("./controller/controller01.php");
     require_once ("./view/view01.php");
     require_once ("./model/model01.php");

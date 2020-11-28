@@ -1,4 +1,7 @@
+
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -68,16 +71,26 @@
       <nav class="nav-menu float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.php">Home</a></li>
+          
           <li><a href="index.php?page=checkDBConnection">Connect to DB</a></li>
+          <li><a href="index.php?page=addNewCustomerForm">Add new customer</a></li>
+          <li><a href="index.php?page=getAllCustomers">Show all customers</a></li>
           <li class="drop-down"><a href="">Data Base Manipulations</a>
             <ul>
-              <li><a href="index.php?page=addNewCustomerForm">Add new customer</a></li>
-              <li><a href="index.php?page=getAllCustomers">Show all customers</a></li>
-              <li><a href="index.php?page=updateCustomerDataForm">Update customer data</a></li>
-              <li><a href="index.php?page=deleteCustomerForm">Delete customer</a></li>
+              <li><a href="">Add new customer</a></li>
+              <li><a href="">Show all customers</a></li>
             </ul>
           </li>
           <li><a href="#contact">Contact Us</a></li>
+          <li><a href="index.php?page=loginForm">
+          <?php
+            if ($_SESSION['authenticated'] === TRUE) {
+              echo "Welcome, " . $_SESSION['name'];
+            } else {
+              echo "Log In";
+            }
+          ?>
+          </a></li>
         </ul>
       </nav><!-- .nav-menu -->
 

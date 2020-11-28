@@ -4,12 +4,14 @@
         private $name;
         private $age;
         private $gender;
+        private $password;
 
-        function __construct($id, $name, $age, $gender) {
+        function __construct($id, $name, $age, $gender, $password) {
             $this->setId($id);
             $this->setName($name);
             $this->setAge($age);
             $this->setGender($gender);
+            $this->setPassword($password);
         }
         
         function getId() {
@@ -40,5 +42,11 @@
             $this->gender = $newGender;
         }
         
+        function getPassword() {
+            return $this->password;
+        }
+        function setPassword($newPassword) {
+            $this->password = $newPassword;
+        }
     }
 ?>
