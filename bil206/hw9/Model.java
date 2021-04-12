@@ -48,9 +48,6 @@ public class Model {
             case "substring" :
                 mainView.addContentInBigFormat(subString(mainView.getSearch()));
                 break;
-            case "cases" :
-                mainView.addContentInBigFormat(printCases(mainView.getSearch()));
-                break;
 
             case "character-asc" :
                 mainView.addContent(setContent(Objects.requireNonNull(sort("character", "asc"))));
@@ -371,8 +368,7 @@ public class Model {
 
     private String subString(String string1) {
         while (!text.contains(string1)) {
-            string1 = string1.substring(0, string1.length() - 1);
-            System.out.println(string1);
+            string1 = string1.substring(0, string1.length() - 2);
         }
         int pos = text.indexOf(string1);
         if (pos == -1)
@@ -380,11 +376,5 @@ public class Model {
         return "Result:\n" +
                 "The longest substring found at position \t#" + pos +
                 "\nThe longest substring found is: \t" + string1;
-    }
-
-    private String printCases(String word) {
-        List<Character> vowels = Arrays.asList('А', 'Е', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я', 'а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я');
-
-        return "builder";
     }
 }

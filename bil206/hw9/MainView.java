@@ -38,8 +38,8 @@ public class MainView {
 
     private JFrame createMenu(Controller controller) {
 
-        fileName = new JTextField("bbb.txt");
-        fileName.setBounds(10, 50, 180, 30);
+        fileName = new JTextField();
+        fileName.setBounds(10, 50, 180, 50);
         frame.add(fileName);
 
         ButtonGroup groupMenu = new ButtonGroup();
@@ -71,23 +71,18 @@ public class MainView {
         radioButton7.addActionListener(controller);
         radioButton7.setActionCommand("replace");
 
-        JRadioButton radioButton8 = new JRadioButton("Longest substring");
+        JRadioButton radioButton8 = new JRadioButton("The longest substring");
         radioButton8.addActionListener(controller);
         radioButton8.setActionCommand("substring");
 
-        JRadioButton radioButton9 = new JRadioButton("Cases");
-        radioButton9.addActionListener(controller);
-        radioButton9.setActionCommand("cases");
-
-        radioButton1.setBounds(10, 100, 180, 30);
-        radioButton2.setBounds(10, 130, 180, 30);
-        radioButton3.setBounds(10, 160, 180, 30);
-        radioButton4.setBounds(10, 190, 180, 30);
-        radioButton5.setBounds(10, 220, 180, 30);
-        radioButton6.setBounds(10, 250, 180, 30);
-        radioButton7.setBounds(10, 280, 180, 30);
-        radioButton8.setBounds(10, 310, 180, 30);
-        radioButton9.setBounds(10, 340, 180, 30);
+        radioButton1.setBounds(10, 130, 180, 30);
+        radioButton2.setBounds(10, 160, 180, 30);
+        radioButton3.setBounds(10, 190, 180, 30);
+        radioButton4.setBounds(10, 220, 180, 30);
+        radioButton5.setBounds(10, 250, 180, 30);
+        radioButton6.setBounds(10, 280, 180, 30);
+        radioButton7.setBounds(10, 310, 180, 30);
+        radioButton8.setBounds(10, 340, 180, 30);
         frame.add(radioButton1);
         frame.add(radioButton2);
         frame.add(radioButton3);
@@ -96,7 +91,6 @@ public class MainView {
         frame.add(radioButton6);
         frame.add(radioButton7);
         frame.add(radioButton8);
-        frame.add(radioButton9);
         groupMenu.add(radioButton1);
         groupMenu.add(radioButton2);
         groupMenu.add(radioButton3);
@@ -105,7 +99,6 @@ public class MainView {
         groupMenu.add(radioButton6);
         groupMenu.add(radioButton7);
         groupMenu.add(radioButton8);
-        groupMenu.add(radioButton9);
 
         search = new JTextField("Text field 1");
         search.setBounds(10, 400, 180, 30);
