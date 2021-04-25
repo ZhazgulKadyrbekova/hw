@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener {
 
-    private final Model model;
+    private Model model;
 
     public Controller(MainView view) {
         this.model = new Model(view);

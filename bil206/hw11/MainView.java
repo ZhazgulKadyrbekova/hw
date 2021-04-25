@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class MainView {
     private static JFrame frame = new JFrame();
-    private final Controller controller;
+    private Controller controller;
     private JTextField fileName;
     private JTextField search;
     private JTextField replace;
@@ -18,7 +18,7 @@ public class MainView {
     JRadioButton radioButton3 = new JRadioButton();
     JRadioButton radioButton4 = new JRadioButton();
 
-    public MainView() {
+    public MainView(String title) {
         controller = new Controller(this);
 
         frame = createMenu(controller);
@@ -39,7 +39,7 @@ public class MainView {
     private JFrame createMenu(Controller controller) {
 
         fileName = new JTextField("bbb.txt");
-        fileName.setBounds(10, 20, 180, 30);
+        fileName.setBounds(10, 50, 180, 30);
         frame.add(fileName);
 
         ButtonGroup groupMenu = new ButtonGroup();
@@ -79,20 +79,15 @@ public class MainView {
         radioButton9.addActionListener(controller);
         radioButton9.setActionCommand("past");
 
-        JRadioButton radioButton10 = new JRadioButton("Future form");
-        radioButton10.addActionListener(controller);
-        radioButton10.setActionCommand("future");
-
-        radioButton1.setBounds(10, 70, 180, 30);
-        radioButton2.setBounds(10, 100, 180, 30);
-        radioButton3.setBounds(10, 130, 180, 30);
-        radioButton4.setBounds(10, 160, 180, 30);
-        radioButton5.setBounds(10, 190, 180, 30);
-        radioButton6.setBounds(10, 220, 180, 30);
-        radioButton7.setBounds(10, 250, 180, 30);
-        radioButton8.setBounds(10, 280, 180, 30);
-        radioButton9.setBounds(10, 310, 180, 30);
-        radioButton10.setBounds(10, 340, 180, 30);
+        radioButton1.setBounds(10, 100, 180, 30);
+        radioButton2.setBounds(10, 130, 180, 30);
+        radioButton3.setBounds(10, 160, 180, 30);
+        radioButton4.setBounds(10, 190, 180, 30);
+        radioButton5.setBounds(10, 220, 180, 30);
+        radioButton6.setBounds(10, 250, 180, 30);
+        radioButton7.setBounds(10, 280, 180, 30);
+        radioButton8.setBounds(10, 310, 180, 30);
+        radioButton9.setBounds(10, 340, 180, 30);
         frame.add(radioButton1);
         frame.add(radioButton2);
         frame.add(radioButton3);
@@ -102,7 +97,6 @@ public class MainView {
         frame.add(radioButton7);
         frame.add(radioButton8);
         frame.add(radioButton9);
-        frame.add(radioButton10);
         groupMenu.add(radioButton1);
         groupMenu.add(radioButton2);
         groupMenu.add(radioButton3);
@@ -112,7 +106,6 @@ public class MainView {
         groupMenu.add(radioButton7);
         groupMenu.add(radioButton8);
         groupMenu.add(radioButton9);
-        groupMenu.add(radioButton10);
 
         search = new JTextField("Text field 1");
         search.setBounds(10, 400, 180, 30);
@@ -125,6 +118,10 @@ public class MainView {
         JLabel notifier = new JLabel("<html> Please, use radio buttons <br/> in stead of submit </html>");
         notifier.setBounds(10, 460, 200, 100);
         frame.add(notifier);
+
+//        JButton submit = new JButton("Submit");
+//        submit.setBounds(50, 450, 100, 30);
+//        frame.add(submit);
 
         totalChar = new JLabel();
         totalChar.setBounds(210, 10, 380, 30);
@@ -256,6 +253,7 @@ public class MainView {
     }
 
     public void addContentInBigFormat(String contentText) {
+//        System.out.println("add content in big format");
         content.setText(null);
         totalWords.setVisible(false);
         totalChar.setVisible(false);
@@ -294,8 +292,15 @@ public class MainView {
         return search.getText();
     }
 
+    public void setSearch(String search) {
+        this.search.setText(search);
+    }
+
     public String getReplace() {
         return replace.getText();
     }
 
+    public void setReplace(String replace) {
+        this.replace.setText(replace);
+    }
 }

@@ -49,9 +49,6 @@ public class Model {
             case "past" :
                 mainView.addContentInBigFormat(printPast(mainView.getSearch()));
                 break;
-            case "future" :
-                mainView.addContentInBigFormat(printFuture(mainView.getSearch()));
-                break;
 
             case "character-asc" :
                 mainView.addContent(setContent(Objects.requireNonNull(sort("character", "asc"))));
@@ -133,7 +130,7 @@ public class Model {
         for (String row : rows) {
             String[] words = row.split(" ");
             for (String word : words) {
-                if (word.equals(" ") || word.equals("\n"))
+                if (word == " " || word == "\n")
                     continue;
                 if (wordsMap.containsKey(word)) {
                     wordsMap.put(word, wordsMap.get(word) + 1);
@@ -287,7 +284,7 @@ public class Model {
 
     private String search(String word) {
         List<String> textList = Arrays.asList(text.split("\n"));
-        int i = 0, pos, row = 0;
+        int i = 0, pos = 0, row = 0;
         if (text.contains(word)) {
             pos = text.indexOf(word);
             while (pos  >= textList.get(i).length()) {
@@ -451,51 +448,12 @@ public class Model {
                 else if (character == 'у' || character == 'о' || character == 'ю') {
                     result += "у";
                 }
+                consonant = false;
                 break;
             }
+//            System.out.println((int) value.charAt(i) + "\t" + value.charAt(i));
         }
         return "Verb:\t\t" + value +
                 "\nPast form:\t\t" + result;
-    }
-
-    private String printFuture(String word) {
-        byte[] bytes = word.getBytes(StandardCharsets.UTF_8);
-        String value = new String(bytes, StandardCharsets.UTF_8);
-        String result = value;
-        String response = "Verb:\t\t" + value + "\nFuture form:\t\t";
-        List<Character> vowels = Arrays
-                .asList('А', 'Е', 'И', 'О', 'У', 'Ы', 'Э', 'Ю', 'Я', 'а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я');
-
-        char first = value.charAt(value.length() - 1);
-        if (vowels.contains(first)) {
-            return response + result + "йт";
-        }
-
-        else {
-            if (first == 'к' || first == 'К') {
-                result = result.substring(0, result.length() - 1);
-                result += 'г';
-            }
-            if (first == 'п' || first == 'П') {
-                result = result.substring(0, result.length() - 1);
-                result += 'б';
-            }
-
-            for (int i = value.length() -2; i >= 0; i--) {
-                char second = value.charAt(i);
-                if (vowels.contains(second)) {
-                    if (second == 'е' || second == 'Е' || second == 'и' || second == 'И') {
-                        return response + result + "ет";
-                    }
-                    if (second == 'о' || second == 'О') {
-                        return response + result + "от";
-                    }
-                    if (second == 'у' || second == 'ы' || second == 'а' || second == 'У' || second == 'Ы' || second == 'А') {
-                        return response + result + "ат";
-                    }
-                }
-            }
-        }
-        return response + result;
     }
 }
